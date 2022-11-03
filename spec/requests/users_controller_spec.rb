@@ -25,6 +25,5 @@ RSpec.describe 'Users', type: :request do
     it 'does not render a different template' do
       expect(response).to_not render_template(:show)
     end
-
   end
 end

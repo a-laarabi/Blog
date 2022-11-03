@@ -9,7 +9,7 @@ RSpec.describe PostsController, type: :request do
     it 'it should return a valid status' do
       expect(@address).to eq(200)
     end
-  
+
     it 'it should render the actual template correctly' do
       expect(get('/users/:id/posts')).to render_template('posts/index')
     end

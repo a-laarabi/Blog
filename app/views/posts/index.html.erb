@@ -9,17 +9,14 @@
     </div>
   </div>
 
-  <% @user.recent_posts.each do |post| %>
-    <%= link_to user_post_path(@user, post) do %>
-      <div class="posts_list">
-        <h2>Post # <%= post.id %></h2>
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <div>
+        <%= post.recent_comments.each do |comment| %>
+          <p><%= comment.author.name %>: <%= comment.text %></p>
         <% end %>
-        <h1 class="user-head"><%= post.title %></h1>
-        <p>post description: <span><%= post.text%></span> </p>
-        <p class="user-para">Number of comments: <%= post.comments_counter || 0 %></p>
-        <p class="user-para">Number of likes: <%= post.likes_counter || 0 %></p>
-          
-      </div>
-    <% end %>
+    </div>
+  <%end%>
+
   <button class="list_btn">pagination</button>
 </section>

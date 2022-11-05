@@ -1,17 +1,8 @@
-<h1>New Post</h1>
-
-<%= form_with model: @post, url: user_posts_path, data: {turbo: false}, method: :post do |form| %>
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class="card">
+  <div class="card-header">
+    <h1>Create a post</h1>
   </div>
-
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text %>
+  <div class="card-body">
+    <p class="card-text"><%= render 'form', post: @post %></p>
   </div>
-
-  <div class="actions">
-    <%= form.submit "Submit Post" %>
-  </div>
-<% end %>
+</div>

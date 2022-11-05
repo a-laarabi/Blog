@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   def index
-    puts params
     @user = User.find(params[:user_id])
     @posts = @user.posts
   end
 
   def show
     @post = Post.find(params[:id])
-    @posts = Post.all
+    @user = @post.author
+    @comments = @post.comments
   end
 
   def new
@@ -16,12 +16,17 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params[:id])
-
-    if @post.save
-      redirect_to users_path(id: @post.users_id)
-    else
-      render :new, status: :unprocessable_entity
-      # redirect_to users_path(id: @post.users_id)
+    @post.likes_counter = 0
+    @post.comments_counter = 0
+    
+    respond_to do |format|
+      if @post.save
+        format.html do
+          redirect_to user_posts_path(user_id: @post.author.id), notice: 'Post was successfully created.'
+        end
+      else
+        format.html { render :new, alert: 'Error in creating post' }
+      end
     end
   end
 

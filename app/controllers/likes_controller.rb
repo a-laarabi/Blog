@@ -8,9 +8,9 @@ class LikesController < ApplicationController
     )
 
     if @like.save
-      redirect_to user_post_path(current_user, @post)
+      redirect_to user_post_path(@post.author_id, @post.id), notice: 'Success.'
     else
-      render :new, status: :unprocessable_entity
+      redirect_to user_post_path(@post.author_id, @post.id), notice: 'Error'
     end
   end
 end

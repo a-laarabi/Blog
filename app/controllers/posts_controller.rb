@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params[:id])
     @post.likes_counter = 0
     @post.comments_counter = 0
-    
+
     respond_to do |format|
       if @post.save
         format.html do
@@ -34,4 +34,3 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :text)
   end
 end
-

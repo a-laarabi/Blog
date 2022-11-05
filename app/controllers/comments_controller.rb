@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     flash[:success] = 'You have deleted this comment!'
     redirect_to user_path(current_user.id)
   end
-  
+
   private
 
   def comment_params

@@ -5,7 +5,7 @@
     </div>
     <div class='user_info'>
       <h3 class='user_name'><%= @user.name %></h3>
-      <p class='num_posts'>Number of Posts: <%= @user.posts.count %></p>
+      <p class='num_posts'>Number of Posts: <%= @user.posts_counter %></p>
     </div>
     </div>
     <div class='user_bio'>
@@ -13,13 +13,14 @@
       <h5><%= @user.bio %></h5>
     </div>
     <div class='user_posts'>
-      <% @user.posts.each do |post| %>
+      <% @user.recent_posts.each do |post| %>
       <div class='posts_list'>
-        <h4><%= link_to post.title, user_post_path(@user, post) %></h4>
+        <h3> Post # <%= post.id%> </h3>
+        <h4><%= post.title %></h4>
         <p><%= post.text %></p>
         <span class='like_comment'>
-          Comments: <%= post.comments_counter || 0 %>,
-          Likes: <%= post.likes_counter || 0 %>
+          Comments: <%= post.comments_counter %>,
+          Likes: <%= post.likes_counter %>
         </span>
       </div>
       <% end %>

@@ -2,15 +2,22 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   before(:all) do
     @user = User.create(
-      name: 'Ambrose',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'I am a preacher of CHRIST',
+      name: 'Anasse',
+      bio: 'I am a front end developer',
+      photo: 'http://www.example.com/photo.jpg',
       posts_counter: 0
     )
-    @comments = Comments.create(
+    @post = Post.create(
+      author: @user,
+      title: 'My first post',
+      text: 'This is my first post',
+      comments_counter: 0,
+      likes_counter: 0
+    )
+    @comments = Comment.create(
       text: 'Coding is fun',
       author_id: @user.id,
-      post_id: 1
+      post_id: @post.id
     )
   end
   it '@commentss created should be valid' do

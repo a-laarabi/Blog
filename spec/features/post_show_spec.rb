@@ -38,4 +38,10 @@ RSpec.describe 'Post show', type: :feature do
   it 'shows the title of the post' do
     expect(page).to have_content(@post.title)
   end
+  it 'shows the title of the post' do
+    expect(page).to have_content(@post.title)
+  end
+  it 'shows part of a post body (This is any post)' do
+    expect(page).to have_content(@post.text)
+  end
 end

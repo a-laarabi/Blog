@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { 
+  subject do
     User.new(
-      name: 'John', 
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo', 
-      bio: 'Random bio', 
+      name: 'John',
+      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'Random bio',
       posts_counter: 2
     )
-  }
+  end
 
   before { subject.save }
 

@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe 'Users index page', type: :feature do
   before :each do
-
     @user1 = User.create(
       name: 'Lilly',
       bio: 'Teacher from Mexico.',

@@ -44,4 +44,12 @@ RSpec.describe 'Post show', type: :feature do
   it 'shows part of a post body (This is any post)' do
     expect(page).to have_content(@post.text)
   end
+  
+  it 'shows the user name of a comment' do
+    expect(page).to have_content('Anasse')
+  end
+
+  it 'shows the comment a user left' do
+    expect(page).to have_content('This is the 2st comment on the 4th post')
+  end
 end

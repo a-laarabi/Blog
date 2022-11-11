@@ -8,11 +8,11 @@
       <% end %>
 
       <% if can? :destroy, @post %>
-
-
-
+     <%= button_to 'Delete Post',
+            post_path,
+            method: :delete,
+            data: {confirm: 'Are You Sure You Want to Delete This Post'}, class: 'btn btn-danger'%>
     <% end %>
-  
   </div>
 </div>
 

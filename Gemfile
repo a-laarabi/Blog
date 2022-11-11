@@ -1,11 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+gem 'devise'
+gem 'rubocop', '>= 1.0', '< 2.0'
 
 ruby '3.0.0'
-
-gem 'devise'
-
-gem 'rubocop', '>= 1.0', '< 2.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
@@ -47,6 +45,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 gem 'bullet'
+gem 'cancancan', '~> 3.4'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
